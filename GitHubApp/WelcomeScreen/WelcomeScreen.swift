@@ -37,13 +37,11 @@ class WelcomeScreen: UIViewController {
                     
                     dashboardViewController.title = user
                     dashboardViewController.viewModel = self.viewModel
-                    
-                    DispatchQueue.main.async {
-                        dashboardViewController.tableView.reloadData()
-                    }
-                    
                     dashboardViewController.activityIndicator.stopAnimating()
                     
+                }
+                DispatchQueue.main.async {
+                    dashboardViewController.tableView.reloadData()
                 }
                 
             }
@@ -57,6 +55,17 @@ class WelcomeScreen: UIViewController {
         
         hideKeyboardWhenTappedAround()
         setBackground(named: "background")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(showAlert(_:)), name: Notification.Name("Error"), object: nil)
     }
     
+    @objc func showAlert(_ notification: NSNotification) {
+        if let message = notification.userInfo!["message"] as? String {
+            DispatchQueue.main.async {
+                popAlert(message: message) {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+    }
 }

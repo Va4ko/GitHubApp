@@ -62,16 +62,17 @@ extension Dashboard: UITableViewDelegate {
         let branchesViewController = mainStoryboard.instantiateViewController(withIdentifier: "Branches") as! BranchesViewController
         
         viewModel.getBranchesData(userName: user, repoName: repos[indexPath.row].name!) {
+            
             DispatchQueue.main.sync {
-                
-                branchesViewController.title = repos[indexPath.row].name
-                branchesViewController.viewModel = viewModel
-                
-                DispatchQueue.main.async {
-                    branchesViewController.tableView.reloadData()
+                if let label = repos[indexPath.row].name {
+                    branchesViewController.title = "\(label) Branches"
                 }
-                
+                branchesViewController.viewModel = viewModel
                 branchesViewController.activityIndicator.stopAnimating()
+            }
+            
+            DispatchQueue.main.async {
+                branchesViewController.tableView.reloadData()
             }
         }
         self.navigationController?.pushViewController(branchesViewController, animated: true)
@@ -99,7 +100,7 @@ extension Dashboard: UITableViewDataSource {
         
         let dateOfUpdate = formatDate(date: repos[indexPath.row].updatedAt!)
         let timeSinceUpdate = convertDate(dateString: dateOfUpdate)
-
+        
         content.text = repos[indexPath.row].name
         content.secondaryText = "Updated on \(dateOfUpdate) | \(timeSinceUpdate) ago"
         content.imageProperties.maximumSize = CGSize(width: 50, height: 50)

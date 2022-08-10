@@ -54,12 +54,13 @@ class DataSource {
                     
                 } catch let error {
                     print("Error in parsing json file \(error.localizedDescription)")
-                    DispatchQueue.main.async {
-                        popAlert(message: "No such user") {
-                            
-                        }
-                    }
-                    
+//                    DispatchQueue.main.async {
+//                        popAlert(message: "No such user") {
+//
+//                        }
+//                    }
+                    let message = ["message": "No such user"]
+                    NotificationCenter.default.post(name: Notification.Name("Error"), object: nil, userInfo: message)
                 }
                 
                 
