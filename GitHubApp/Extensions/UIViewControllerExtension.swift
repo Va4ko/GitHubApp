@@ -22,10 +22,11 @@ extension UIViewController {
         backgroundImageView.contentMode = .scaleAspectFill
         
         backgroundImageView.image = UIImage(named: name)
-
+        
         view.sendSubviewToBack(backgroundImageView)
     }
     
+    /// Hide keyboard when tapped ouside
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false

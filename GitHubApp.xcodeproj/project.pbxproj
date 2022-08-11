@@ -21,6 +21,7 @@
 		422C8CB228A2A62400ECE9B4 /* BranchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422C8CB128A2A62400ECE9B4 /* BranchesViewController.swift */; };
 		422C8CB428A2BCF100ECE9B4 /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422C8CB328A2BCF100ECE9B4 /* Branch.swift */; };
 		422C8CB728A3947200ECE9B4 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422C8CB628A3947200ECE9B4 /* UIViewControllerExtension.swift */; };
+		42AA04E928A4E708004C9A66 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AA04E828A4E708004C9A66 /* NavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		422C8CB128A2A62400ECE9B4 /* BranchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesViewController.swift; sourceTree = "<group>"; };
 		422C8CB328A2BCF100ECE9B4 /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 		422C8CB628A3947200ECE9B4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		42AA04E828A4E708004C9A66 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				422C8CB528A3943300ECE9B4 /* Extensions */,
 				422C8C8A28A1469E00ECE9B4 /* AppDelegate.swift */,
 				422C8C8C28A1469E00ECE9B4 /* SceneDelegate.swift */,
+				42AA04E828A4E708004C9A66 /* NavigationViewController.swift */,
 				422C8C9328A146A000ECE9B4 /* Assets.xcassets */,
 				422C8C9528A146A000ECE9B4 /* LaunchScreen.storyboard */,
 				422C8C9828A146A000ECE9B4 /* Info.plist */,
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42AA04E928A4E708004C9A66 /* NavigationViewController.swift in Sources */,
 				422C8CB228A2A62400ECE9B4 /* BranchesViewController.swift in Sources */,
 				422C8CA728A189A500ECE9B4 /* DataSource.swift in Sources */,
 				422C8C8F28A1469E00ECE9B4 /* WelcomeScreen.swift in Sources */,

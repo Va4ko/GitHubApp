@@ -177,10 +177,10 @@
             </objects>
             <point key="canvasLocation" x="2611.594202898551" y="93.75"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="ngl-u1-vYD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZhJ-WT-BxR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ZhJ-WT-BxR" customClass="NavigationViewController" customModule="GitHubApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FiF-vx-4LJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

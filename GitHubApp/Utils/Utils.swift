@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// Show alert viewcontroller with message
 func popAlert(message: String, onComplete: @escaping () -> Void) {
     let alert = UIAlertController(title: "Attention", message: message, preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -19,6 +20,7 @@ func popAlert(message: String, onComplete: @escaping () -> Void) {
     currentViewController.present(alert, animated: true)
 }
 
+/// Get current viewcontroller
 public func currentVC() -> UIViewController {
     let keyWindow = UIWindow.key
     var currentViewCtrl: UIViewController = keyWindow!.rootViewController!
@@ -28,6 +30,7 @@ public func currentVC() -> UIViewController {
     return currentViewCtrl
 }
 
+/// Getting the date since...
 func convertDate(dateString: String) -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -45,6 +48,7 @@ func convertDate(dateString: String) -> String {
     return formattedString
 }
 
+/// Convert date format
 func formatDate(date: String) -> String {
     let dateFormatterGet = DateFormatter()
     dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

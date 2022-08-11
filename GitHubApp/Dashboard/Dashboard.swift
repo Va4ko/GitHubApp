@@ -11,9 +11,11 @@ class Dashboard: UIViewController {
     
     //MARK: Properties
     var viewModel: WelcomeScreenViewModel?
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    let defaults = UserDefaults.standard
+    
     
     //MARK: IBOutlets
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -47,6 +49,7 @@ class Dashboard: UIViewController {
     @objc func logout() {
         navigationController?.popViewController(animated: true)
         viewModel?.dataSource.repos = nil
+        self.defaults.set(nil, forKey: "user")
     }
     
 }
@@ -69,11 +72,9 @@ extension Dashboard: UITableViewDelegate {
                 }
                 branchesViewController.viewModel = viewModel
                 branchesViewController.activityIndicator.stopAnimating()
-            }
-            
-            DispatchQueue.main.async {
                 branchesViewController.tableView.reloadData()
             }
+            
         }
         self.navigationController?.pushViewController(branchesViewController, animated: true)
     }
@@ -128,6 +129,5 @@ extension Dashboard: UITableViewDataSource {
         
         return cell
     }
-    
     
 }

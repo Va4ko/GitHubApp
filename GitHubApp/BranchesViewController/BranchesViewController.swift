@@ -23,6 +23,10 @@ class BranchesViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        viewModel?.dataSource.branches = nil
+    }
+    
 }
 
 extension BranchesViewController: UITableViewDelegate {
@@ -52,6 +56,5 @@ extension BranchesViewController: UITableViewDataSource {
         
         return cell
     }
-    
     
 }

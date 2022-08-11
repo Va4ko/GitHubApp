@@ -11,7 +11,7 @@ class WelcomeScreen: UIViewController {
     
     // MARK: Properties
     let viewModel = WelcomeScreenViewModel()
-    
+    let defaults = UserDefaults.standard
     
     // MARK: IBOutlets
     @IBOutlet weak var userNameTextField: UITextField!
@@ -33,15 +33,14 @@ class WelcomeScreen: UIViewController {
             
             viewModel.getData(userName: user) {
                 
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     
                     dashboardViewController.title = user
                     dashboardViewController.viewModel = self.viewModel
                     dashboardViewController.activityIndicator.stopAnimating()
-                    
-                }
-                DispatchQueue.main.async {
                     dashboardViewController.tableView.reloadData()
+                    self.defaults.set(user, forKey: "user")
+                    
                 }
                 
             }
@@ -57,6 +56,7 @@ class WelcomeScreen: UIViewController {
         setBackground(named: "background")
         
         NotificationCenter.default.addObserver(self, selector: #selector(showAlert(_:)), name: Notification.Name("Error"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showAlert(_:)), name: Notification.Name("NetworkError"), object: nil)
     }
     
     @objc func showAlert(_ notification: NSNotification) {
@@ -64,6 +64,7 @@ class WelcomeScreen: UIViewController {
             DispatchQueue.main.async {
                 popAlert(message: message) {
                     self.navigationController?.popViewController(animated: true)
+                    self.defaults.set(nil, forKey: "user")
                 }
             }
         }
