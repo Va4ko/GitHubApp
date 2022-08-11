@@ -65,6 +65,7 @@ class WelcomeScreen: UIViewController {
                 popAlert(message: message) {
                     self.navigationController?.popViewController(animated: true)
                     self.defaults.set(nil, forKey: "user")
+                    self.viewModel.dataSource.repos = nil
                 }
             }
         }
